@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Network Monitor</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    h2, p {
+      margin: 10px 0;
+    }
+
+    #targetForm {
+      margin-bottom: 20px;
+    }
+
+    #chartWindow {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      width: 400px;
+      height: 250px;
+      resize: both;
+      overflow: auto;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  </style>
+</head>
+<body>
+  <h2>Monitoring: <span id="target">Loading...</span></h2>
+
+  <form id="targetForm">
+    <input type="text" id="targetInput" placeholder="Enter IP or domain" required>
+    <button type="submit">Start Monitoring</button>
+  </form>
+
+  <p>Status: <span id="status">Checking...</span></p>
+  <p>Latency: <span id="latency">-</span> ms</p>
+
+  <div id="chartWindow">
+    <canvas id="latencyChart"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
